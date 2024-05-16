@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Conservation Project</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #006666;
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding-left: 10px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .nav-links li a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #00FFFF;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-links li a:hover::before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        /* Header */
+        header {
+            background-image: url("main.jpg");
+            background-size: 100% auto;
+            background-position: center;
+            height: 1320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 2rem;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        header.show {
+            opacity: 1;
+        }
+
+        .hero-text {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+
+        header.show .hero-text {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .cta {
+            background-color: #00FFFF;
+            color: #008080;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta:hover {
+            background-color: #008080;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        /* Main Sections */
+        .container {
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tip {
+            border: 1px solid #ccc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .tip:hover {
+            transform: translateY(-5px);
+        }
+
+        .tip:nth-child(odd) {
+            background-color: #EFEFEF;
+        }
+
+        .tip:nth-child(even) {
+            background-color: #D9D9D9;
+        }
+
+        .tip h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #006666;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+        }
+
+        /* Slideshow Images */
+        .slide-img {
+            max-width: 600px; /* Increased image size */
+            max-height: 1020px; /* Increased maximum height */
+            display: block;
+            margin: auto;
+        }
+
+        /* Mobile Styles */
+        @media screen and (max-width: 1068px) {
+            /* Media queries for mobile styles */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">WaterSaver</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#tips">Tips</a></li>
+            <li><a href="#scarcity">Water Scarcity</a></li>
+            <li><a href="#images">Images</a></li>
+            <li><a href="#contact">Explore</a></li> 
+            <li><a href="#actions">Feedback</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    <header class="show">
+        <div class="hero-text">
+            <h1 style="transition: transform 0.5s ease, opacity 0.5s ease;">Save Water, Save Life</h1>
+            <p style="transition: transform 0.5s ease, opacity 0.5s ease;">A sustainable future begins with conservation</p>
+            <a href="#actions" class="cta">Join Us</a>
+        </div>
+    </header>
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>At Water Saver, we're more than just a brand—we're stewards of our planet's most vital resource. With a passionate commitment to sustainability and environmental stewardship, we've made it our mission to lead the charge in water conservation. Through innovation, education, and community engagement, we're dedicated to preserving our liquid lifeline for generations to come. Join us in our journey to make every drop count and create a brighter, more sustainable future for all.</p>
+        </div>
+    </section>
+    <section id="tips">
+        <div class="container">
+            <h2>Water Saving Tips</h2>
+            <div class="tips-grid">
+                <div class="tip">
+                    <h3>Turn Off Faucets</h3>
+                    <p>Remember to turn off faucets while brushing teeth or washing dishes to save water.</p>
+                </div>
+                <div class="tip">
+                    <h3>Fix Leaks</h3>
+                    <p>Check and fix leaks promptly to prevent water wastage.</p>
+                </div>
+                <div class="tip">
+                    <h3>Water-Efficient Appliances</h3>
+                    <p>Invest in water-efficient appliances to reduce consumption.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="actions">
+        <div class="container">
+            <h2>Share Feedback</h2>
+            <p>"Shape Your Experience: Share Your Feedback & Reviews!"</p>
+            <button id="feedback-button" class="cta">Feedback</button>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <h2>Unlock a World of Exclusive Content: Sign Up Now!"</h2>
+            <div class="login-register-buttons">
+                <button id="contact-button" class="cta">Register</button>
+                <a href="login.html" class="cta">Login</a>
+            </div>
+        </div>
+    </section>
+    <section id="scarcity">
+        <div class="container">
+            <h2>Water Scarcity</h2>
+            <p>Every Drop Counts: Join us in conserving water, one habit at a time, for a sustainable future.</p>
+            <p>Liquid Gold: Turning the tide on water scarcity through innovation and collaboration.</p>
+	    <p>Thirsting for Change: Addressing global water scarcity with sustainable solutions.</p>
+        </div>
+    </section>
+    <section id="images" class="slideshow-container">
+        <div class="container">
+            <h2>Water Conservation</h2>
+            <div class="slide fade">
+                <img src="wc1.jpg" alt="Water Conservation" class="slide-img">
+            </div>
+            <div class="slide fade">
+                <img src="wc2.jpg" alt="Water Conservation" class="slide-img">
+            </div>
+            <div class="slide fade">
+                <img src="ws3.jpg" alt="Water Conservation" class="slide-img">
+            </div>
+            <div class="slide fade">
+                <img src="ws1.jpg" alt="Water Conservation" class="slide-img">
+            </div>
+            <div class="slide fade">
+                <img src="ws2.jpg" alt="Water Conservation" class="slide-img">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </section>
+    <section id="greeting">
+        <div class="container">
+            <h2>Greetings for Visiting</h2>
+            <p>Welcome to our Water Conservation Project! Thank you for exploring with us. Together, let's make a splash towards a sustainable future!</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 WaterSaver. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.querySelectorAll(".slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 2000); 
+        }
+
+        document.getElementById("contact-button").onclick = function () {
+            location.href = "register.html";
+        };
+
+        document.getElementById("feedback-button").onclick = function () {
+            location.href = "feedback.html";
+        };
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            const slides = document.getElementsByClassName("slide");
+            if (n === undefined) { n = ++slideIndex; }
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

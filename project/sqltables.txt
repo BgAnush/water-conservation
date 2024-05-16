@@ -1,0 +1,46 @@
+CREATE TABLE feedback_table (
+    id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    feedback TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
+) 
+
+
+CREATE TABLE users (
+    id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255)
+);
+
+CREATE INDEX idx_username ON users (username);
+CREATE INDEX idx_email ON users (email);
+
+CREATE TABLE usage (
+    id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    shower INT(11),
+    dishwashing INT(11),
+    laundry INT(11),
+    flushes INT(11)
+);
+
+
+
+CREATE TABLE info (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255),
+    shower INT(11),
+    dishwashing INT(11),
+    laundry INT(11),
+    flushes INT(11),
+    apartment INT(11),
+    measures VARCHAR(255),
+    totalbill DECIMAL(10,2),
+    totalusage INT(11),
+    FOREIGN KEY (id) REFERENCES users(id),
+    FOREIGN KEY (username) REFERENCES users(username)
+);
+
+
+CREATE INDEX idx_username ON info (username);
