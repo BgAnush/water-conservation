@@ -82,7 +82,7 @@ Internet Connection for cloud sync
 
 **Clone the Repository**
 
-git clone https://github.com/yourusername/WaterConservation.git
+git clone https://github.com/BgAnush/water-conservation.git
 cd WaterConservation
 
 
